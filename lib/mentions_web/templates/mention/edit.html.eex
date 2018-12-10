@@ -1,0 +1,5 @@
+<h2>Edit Mention</h2>
+
+<%= render "form.html", Map.put(assigns, :action, mention_path(@conn, :update, @mention)) %>
+
+<span><%= link "Back", to: mention_path(@conn, :index) %></span>

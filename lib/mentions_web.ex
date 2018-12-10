@@ -28,8 +28,9 @@ defmodule MentionsWeb do
 
   def view do
     quote do
-      use Phoenix.View, root: "lib/mentions_web/templates",
-                        namespace: MentionsWeb
+      use Phoenix.View,
+        root: "lib/mentions_web/templates",
+        namespace: MentionsWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 2, view_module: 1]

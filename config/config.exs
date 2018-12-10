@@ -7,7 +7,8 @@ use Mix.Config
 
 # General application configuration
 config :mentions,
-  ecto_repos: [Mentions.Repo]
+  ecto_repos: [Mentions.Repo],
+  screen_name: "Skoda091"
 
 # Configures the endpoint
 config :mentions, MentionsWeb.Endpoint,
@@ -21,6 +22,19 @@ config :mentions, MentionsWeb.Endpoint,
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:user_id]
+
+config :extwitter, :oauth, [
+    consumer_key: "<consumer_key>",
+    consumer_secret: "<consumer_secret>",
+    access_token: "<access_token>",
+    access_token_secret: "<access_token_secret>"
+ ]
+
+config :mentions, Mentions.Scheduler,
+  jobs: [
+    # Every minute
+    {"* * * * *", {Mentions.Tweets, :fetch_and_save, []}},
+  ]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

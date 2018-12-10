@@ -1,0 +1,33 @@
+<h2>Show Mention</h2>
+
+<ul>
+
+  <li>
+    <strong>Tw:</strong>
+    <%= @mention.tw_id %>
+  </li>
+
+  <li>
+    <strong>Author:</strong>
+    <%= @mention.author %>
+  </li>
+
+  <li>
+    <strong>Retweet count:</strong>
+    <%= @mention.retweet_count %>
+  </li>
+
+  <li>
+    <strong>Created at:</strong>
+    <%= @mention.created_at %>
+  </li>
+
+  <li>
+    <strong>Tw text:</strong>
+    <%= @mention.tw_text %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: mention_path(@conn, :edit, @mention) %></span>
+<span><%= link "Back", to: mention_path(@conn, :index) %></span>

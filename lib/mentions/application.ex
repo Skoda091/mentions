@@ -14,6 +14,7 @@ defmodule Mentions.Application do
       supervisor(MentionsWeb.Endpoint, []),
       # Start your own worker by calling: Mentions.Worker.start_link(arg1, arg2, arg3)
       # worker(Mentions.Worker, [arg1, arg2, arg3]),
+      worker(Mentions.Scheduler, [])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
